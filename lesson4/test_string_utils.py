@@ -42,13 +42,16 @@ def test_to_list(string, delimeter, result):
 
 #contains
 @pytest.mark.parametrize('string, symbol, result', [
-    
+    """positive test"""
     ("банан", "б", True),
     ("кресло-качалка", "-", True),
     ("море", "е", True),
     ("123", "1", True),
     ("", "", True),
-    ("Кострома", "к", False),    
+    ("Кострома", "к", False),
+     """negative test"""
+    ("Кострома", "к", False), 
+    ("море", "E", True),   
 ])        
 def test_contains(string, symbol, result):
     res = utils.contains(string, symbol, result) 
@@ -56,13 +59,17 @@ def test_contains(string, symbol, result):
 
 #delete symbol
 @pytest.mark.parametrize('string, symbol, result', [
-    
+    """positive test"""
     ("Лук", "л", "ук"),
     ("Петр", "р", "Пет"),
     ("мордор", "м", "ордор"),
     ("++100500", "+", "+100500"),
     ("Лютое месиво", " ", "Лютоемесиво"),
-    ("комод", " ", "комод"),    
+    ("комод", " ", "комод"),
+    """negative test""" 
+    ("Лук", "Л", "Лук"),
+    ("Петр", "р", "Перт"),
+    ("100500", "1", " "),   
 ])        
 def test_delete_symbol(string, symbol, result):
     res = utils.delete_symbol(string, symbol) 
@@ -70,13 +77,16 @@ def test_delete_symbol(string, symbol, result):
 
 #starts_with
 @pytest.mark.parametrize('string, symbol, result', [
-    
+    """positive test"""
     ("Лук", "л", True),
     ("", "", True),
     ("Gangster", "G", True),
     ("+100500", "+", True),
     ("", "Б", False),
-    ("Арбуз", "О", False),    
+    ("Арбуз", "О", False),
+    """negative test""" 
+    ("Лук", "л", False),
+    ("", "Б", True),    
 ])        
 def test_starts_with(string, symbol, result):
     res = utils.starts_with(string, symbol) 
@@ -84,13 +94,16 @@ def test_starts_with(string, symbol, result):
 
 #end_with
 @pytest.mark.parametrize('string, symbol, result', [
-    
+    """positive test"""
     ("Лук", "к", True),
     ("", "", True),
     ("Gangster", "r", True),
     ("+100500", "0", True),
     ("Ключ", "ь", False),
-    ("Помощь", "щ", False),    
+    ("Помощь", "щ", False), 
+    """negative test""" 
+    ("Day", "y", False),
+    ("34562", "9", True),    
 ])        
 def test_end_with(string, symbol, result):
     res = utils.end_with(string, symbol) 
@@ -98,13 +111,16 @@ def test_end_with(string, symbol, result):
 
 #is_empty
 @pytest.mark.parametrize('string, result', [
-    
+    """positive test"""
     ("", True),
     (" ", True),
     ("  ", True),
     ("не пусто", False),
     (" не пусто с пробелом в начале", False),
-    ("404", False),    
+    ("404", False), 
+    """negative test"""
+    ("  ", False),
+    ("не пусто", True),
 ])        
 def test_is_empty(string, result):
     res = utils.end_with(string) 
@@ -112,12 +128,15 @@ def test_is_empty(string, result):
 
 #list_to_string
 @pytest.mark.parametrize('lst, joiner, result', [
-    
+    """positive test"""
     (["s", "o", "s"], ",", "s,o,s"),
     ([1, 2, 3, 4, 5], None, "1,2,3,4,5"),
     (["Первый", "Второй"], "-", "Первый-Второй"),
     ([], None, ""),
-    ([], ",", ""), 
+    ([], ",", ""),
+    """negative test"""
+    ([1, 2, 3, 4, 5], None, "5,4,3,2,1"),
+    (["c", "u", "p"], ",", "c,у,п"), 
 ])        
 def test_list_to_string(lst, joiner, result):
     if joiner == None:
