@@ -27,9 +27,9 @@ def test_trim():
 #to_list
 @pytest.mark.parametrize('string, delimeter, result', [
     #positive
-    ("яблоко, банан, апельсин", ",",["яблоко", "банан", "апельсин"]),
+    ("яблоко, банан, апельсин", ",", ["яблоко", "банан", "апельсин"]),
     ("1, 2, 3, 4, 5", ",", ["1","2","3","4","5"]),
-    ("*, @, $", ",", ["*","@","$"]),
+    ("*@$", "@", ["*","@","$"]),
     #negative
     ("", None, []),
 ])        
@@ -41,7 +41,7 @@ def test_to_list(string, delimeter, result):
     assert res == result      
 
 #contains
-@pytest.mark.parametrize('string, delimeter, result', [
+@pytest.mark.parametrize('string, symbol, result', [
     
     ("банан", "б", True),
     ("кресло-качалка", "-", True),
@@ -55,7 +55,7 @@ def test_contains(string, symbol, result):
     assert res == result
 
 #delete symbol
-@pytest.mark.parametrize('string, delimeter, result', [
+@pytest.mark.parametrize('string, symbol, result', [
     
     ("Лук", "л", "ук"),
     ("Петр", "р", "Пет"),
@@ -69,7 +69,7 @@ def test_delete_symbol(string, symbol, result):
     assert res == result
 
 #starts_with
-@pytest.mark.parametrize('string, delimeter, result', [
+@pytest.mark.parametrize('string, symbol, result', [
     
     ("Лук", "л", True),
     ("", "", True),
@@ -83,7 +83,7 @@ def test_starts_with(string, symbol, result):
     assert res == result
 
 #end_with
-@pytest.mark.parametrize('string, delimeter, result', [
+@pytest.mark.parametrize('string, symbol, result', [
     
     ("Лук", "к", True),
     ("", "", True),
@@ -113,9 +113,9 @@ def test_is_empty(string, result):
 #list_to_string
 @pytest.mark.parametrize('lst, joiner, result', [
     
-    (["h", "e", "l", "p"], "," "h,e,l,p"),
+    (["s", "o", "s"], ",", "s,o,s"),
     ([1, 2, 3, 4, 5], None, "1,2,3,4,5"),
-    ("Ядрёна", "копоть", "-", "Ядрёна-копоть"),
+    (["Первый", "Второй"], "-", "Первый-Второй"),
     ([], None, ""),
     ([], ",", ""), 
 ])        
