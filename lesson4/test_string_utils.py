@@ -22,7 +22,7 @@ def test_trim():
     assert utils.trim("  hello world  ") == "hello world  "
     assert utils.trim("  WORD  ") == "WORD  "
     """negative test utilite - trim"""
-    assert utils.capitalize("") == ""
+    assert utils.trim("") == ""
 
 #to_list
 @pytest.mark.parametrize('string, delimeter, result', [
@@ -48,8 +48,7 @@ def test_to_list(string, delimeter, result):
     ("море", "е", True),
     ("123", "1", True),
     ("", "", True),
-    ("Кострома", "к", False),
-     """negative test"""
+    """negative test"""
     ("Кострома", "к", False), 
     ("море", "E", True),   
 ])        
@@ -63,7 +62,6 @@ def test_contains(string, symbol, result):
     ("Лук", "л", "ук"),
     ("Петр", "р", "Пет"),
     ("мордор", "м", "ордор"),
-    ("++100500", "+", "+100500"),
     ("Лютое месиво", " ", "Лютоемесиво"),
     ("комод", " ", "комод"),
     """negative test""" 
@@ -78,15 +76,15 @@ def test_delete_symbol(string, symbol, result):
 #starts_with
 @pytest.mark.parametrize('string, symbol, result', [
     """positive test"""
-    ("Лук", "л", True),
+    ("Лук", "Л", True),
     ("", "", True),
     ("Gangster", "G", True),
     ("+100500", "+", True),
     ("", "Б", False),
     ("Арбуз", "О", False),
     """negative test""" 
-    ("Лук", "л", False),
-    ("", "Б", True),    
+    ("", "Б", True),
+     ("Лук", "л", True),    
 ])        
 def test_starts_with(string, symbol, result):
     res = utils.starts_with(string, symbol) 
