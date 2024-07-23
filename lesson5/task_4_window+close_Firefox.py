@@ -5,9 +5,7 @@ import sys
 
 # Функция для выполнения теста
 def run_test(browser):
-    if browser == 'chrome':
-        driver = webdriver.Chrome()
-    elif browser == 'firefox':
+    if browser == 'firefox':
         driver = webdriver.Firefox()
 
     try:
@@ -25,11 +23,6 @@ def run_test(browser):
     finally:
         # Закрываем драйвер
         driver.quit()
-
-# Запускаем тест для Chrome
-print("Запуск теста в Chrome...")
-run_test('chrome')
-print("Тест завершен для Chrome.\n")
 
 # Запускаем тест для Firefox
 print("Запуск теста в Firefox...")

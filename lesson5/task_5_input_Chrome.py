@@ -6,8 +6,7 @@ import sys
 def run_test(browser):
     if browser == 'chrome':
         driver = webdriver.Chrome()  
-    elif browser == 'firefox':
-        driver = webdriver.Firefox()  
+      
     
     try:
         # Переход на страницу
@@ -38,7 +37,3 @@ print("Запуск теста в Chrome...")
 run_test('chrome')
 print("Тест завершен для Chrome.\n")
 
-# Запускаем тест для Firefox
-print("Запуск теста в Firefox...")
-run_test('firefox')
-print("Тест завершен для Firefox.\n")

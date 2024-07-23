@@ -4,9 +4,8 @@ from time import sleep
 import sys
 
 def run_test(browser):
-    if browser == 'chrome':
-        driver = webdriver.Chrome()  
-    elif browser == 'firefox':
+     
+    if browser == 'firefox':
         driver = webdriver.Firefox() 
     
     try:
@@ -21,11 +20,6 @@ def run_test(browser):
         # Закрываем драйвер
         driver.quit()
 
-# Запускаем тест 3 раза для каждого браузера
-for _ in range(3):
-    print("Запуск теста в Chrome...")
-    run_test('chrome')
-    print("Тест завершен для Chrome.\n")
 
 for _ in range(3):
     print("Запуск теста в Firefox...")

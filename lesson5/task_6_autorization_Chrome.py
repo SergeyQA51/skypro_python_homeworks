@@ -6,9 +6,8 @@ import sys
 # Функция для выполнения теста
 def run_test(browser):
     if browser == 'chrome':
-        driver = webdriver.Chrome()  # Убедитесь, что chromedriver установлен и находится в PATH
-    elif browser == 'firefox':
-        driver = webdriver.Firefox()  # Убедитесь, что geckodriver установлен и находится в PATH
+        driver = webdriver.Chrome()
+    
 
     try:
         # Открываем страницу
@@ -42,7 +41,3 @@ print("Запуск теста в Chrome...")
 run_test('chrome')
 print("Тест завершен для Chrome.\n")
 
-# Запускаем тест для Firefox
-print("Запуск теста в Firefox...")
-run_test('firefox')
-print("Тест завершен для Firefox.\n")

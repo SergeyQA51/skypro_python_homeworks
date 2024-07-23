@@ -4,31 +4,28 @@ from time import sleep
 
 # Инициализируем драйвер
 Cdriver = webdriver.Chrome()
-Fdriver = webdriver.Firefox() 
 
 try:
     # Открываем страницу
     Cdriver.get("http://the-internet.herokuapp.com/add_remove_elements/")
-    Fdriver.get("http://the-internet.herokuapp.com/add_remove_elements/")
     
     # Находим кнопку 'Add Element' и кликаем на нее 5 раз
     chrome_add_button = Cdriver.find_element(By.XPATH, "//button[text()='Add Element']")
-    firefox_add_button = Fdriver.find_element(By.XPATH, "//button[text()='Add Element']")
+    
     
     for _ in range(5):
         chrome_add_button.click()
-        firefox_add_button.click()
         sleep(1)  
 
     # Собираем список кнопок 'Delete'
     chrome_delete_buttons = Cdriver.find_elements(By.XPATH, "//button[text()='Delete']")
-    firefox_delete_buttons = Fdriver.find_elements(By.XPATH, "//button[text()='Delete']")
+
     
     # Выводим размер списка
     print(f"Количество кнопок 'Delete': {len(chrome_delete_buttons)}")
-    print(f"Количество кнопок 'Delete': {len(firefox_delete_buttons)}")
+
     
 finally:
     # Закрываем драйвер
     Cdriver.quit()
-    Fdriver.quit()
+
