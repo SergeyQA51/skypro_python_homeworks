@@ -5,10 +5,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-
 driver = webdriver.Chrome()
 driver.get("http://uitestingplayground.com/ajax")
-
 
 button = driver.find_element(By.CSS_SELECTOR, ".btn.btn-primary")
 button.click()
@@ -22,10 +20,7 @@ try:
     print(text)
 except TimeoutException:
     print("Элемент не найден в течение указанного времени.")
+    
 finally:
 
     driver.quit()
-
-
-
-

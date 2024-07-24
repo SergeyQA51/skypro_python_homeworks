@@ -10,15 +10,13 @@ try:
     driver.get("https://bonigarcia.dev/selenium-webdriver-java/loading-images.html")
 
     WebDriverWait(driver, 10).until(
-        EC.visibility_of_element_located((By.XPATH, "//img[4]"))
-    )
-    
-    third_image = driver.find_element(By.XPATH, "//img[3]")
+        EC.visibility_of_element_located((By.ID, "landscape"))
+    )    
+    third_image = driver.find_element(By.ID, "award")
     src_value = third_image.get_attribute("src")
 
-    
     print("Значение атрибута src у 3-й картинки:", src_value)
 
 finally:
-
+    
     driver.quit()
