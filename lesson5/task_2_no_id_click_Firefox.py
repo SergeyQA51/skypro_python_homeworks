@@ -27,4 +27,3 @@ for _ in range(3):
     print("Запуск теста в Firefox...")
     run_test('firefox')
     print("Тест завершен для Firefox.\n")
-

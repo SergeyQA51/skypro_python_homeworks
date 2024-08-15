@@ -19,7 +19,7 @@ def run_test(browser):
         close_button.click()
         
         sleep(1) 
-
+        
     finally:
         # Закрываем драйвер
         driver.quit()
