@@ -9,32 +9,31 @@ def run_test(browser):
         driver = webdriver.Firefox()  # Убедитесь, что geckodriver установлен и находится в PATH
 
     try:
-        # Открываем страницу
+# Открываем страницу
         driver.get("http://the-internet.herokuapp.com/login")
         
         sleep(2)
         
-        # Находим поле username и вводим значение
+# Находим поле username и вводим значение
         username_field = driver.find_element(By.NAME, "username")
         username_field.send_keys("tomsmith")
 
         sleep(1)
         
-        # Находим поле password и вводим значение
+# Находим поле password и вводим значение
         password_field = driver.find_element(By.NAME, "password")
         password_field.send_keys("SuperSecretPassword!")
         
         sleep(1)
         
-        # Находим кнопку Login и нажимаем на нее
+# Находим кнопку Login и нажимаем на нее
         login_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
         login_button.click()
 
         sleep(2)
     finally:
-        # Закрываем драйвер
+# Закрываем драйвер
         driver.quit()
-
 
 # Запускаем тест для Firefox
 print("Запуск теста в Firefox...")

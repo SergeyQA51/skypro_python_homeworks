@@ -6,8 +6,7 @@ import sys
 def run_test(browser):
     if browser == 'chrome':
         driver = webdriver.Chrome()  
-      
-    
+         
     try:
         # Переход на страницу
         driver.get("http://the-internet.herokuapp.com/inputs")
@@ -36,4 +35,3 @@ def run_test(browser):
 print("Запуск теста в Chrome...")
 run_test('chrome')
 print("Тест завершен для Chrome.\n")
-

@@ -20,7 +20,6 @@ def run_test(browser):
         # Закрываем драйвер
         driver.quit()
 
-
 for _ in range(3):
     print("Запуск теста в Firefox...")
     run_test('firefox')

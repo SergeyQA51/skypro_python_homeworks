@@ -27,7 +27,7 @@ class TestCalculator:
         setup.find_element(By.XPATH, "//span[@class='btn btn-outline-warning' and text()='=']").click()
 
         print("Ожидание результата...")
-        resultElement = WebDriverWait(setup, 50).until(
+        resultElement = WebDriverWait(setup, 46).until(
             EC.text_to_be_present_in_element((By.CLASS_NAME, "screen"), "15")  # Ждем, пока результат будет '15'
         )
 
