@@ -52,15 +52,26 @@ def test_create_employee2():
     db_result = db.get_list_employee(company_id)  
     db.add_new_employee("Sergey", "Sergeev", "88005553535", True, company_id)  
     new_employee_id = db.get_id_new_employee() 
-
     data_employee = api.get_new_employee2(new_employee_id)  
     data_employee = data_employee.json()  
     print(data_employee)  
     assert data_employee["firstName"] == "Sergey"
+
+def delete(self, id):  
+    with self.__db.begin():  
+        self.__db.execute(self.scripts['delete'], new_id=id)
+    
 
 def test_edit_employee():  
     db.add_new_employee("Sergey", "Sergeev", "88005553535", True, company_id)  
     id = db.get_id_new_employee()  
     db.edit_employee("Igor", "Nickolaev", "123456768", True, company_id, id)  
     data_employee = api.get_new_employee2(id)  
-    data_employee = data_employee.json()     
+    data_employee = data_employee.json()
+
+def delete(self, id):  
+    with self.__db.begin():  
+        self.__db.execute(self.scripts['delete'], new_id=id)   
+    
+    
+         
