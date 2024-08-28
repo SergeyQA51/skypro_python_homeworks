@@ -1,11 +1,20 @@
-import requests
+import requests  
 
+class Company:  
+    def __init__(self, url) -> None:  
+        self.url = url  
 
-class Company:
+    def get_id_company(self):  
+        response = requests.get(self.url + '/company')  
+        response.raise_for_status() 
+        return response.json()[-1]['id']  
 
-    def __init__(self, url) -> None:
-        self.url = url
+    def create_company(self, company_data):    
+        response = requests.post(self.url + '/company', json=company_data)  
+        response.raise_for_status()    
+        return response.json()    
 
-    def get_id_company(self):
-        id_company = requests.get(self.url + '/company')
-        return id_company.json()[-1]['id']
+    def delete_company(self, company_id):  
+        response = requests.delete(self.url + f'/company/{company_id}')  
+        response.raise_for_status()   
+        return response.json() 

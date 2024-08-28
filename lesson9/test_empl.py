@@ -58,7 +58,6 @@ def test_create_employee2():
     print(data_employee)  
     assert data_employee["firstName"] == "Sergey"
 
-
 def test_edit_employee():  
     db.add_new_employee("Sergey", "Sergeev", "88005553535", True, company_id)  
     id = db.get_id_new_employee()  
