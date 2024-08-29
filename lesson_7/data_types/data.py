@@ -1,0 +1,11 @@
+# Глобальные данные для заполнения формы  
+first_name = "Иван"  # Имя (str)  
+last_name = "Петров"  # Фамилия (str)  
+address = "Ленина, 55-3"  # Адрес (str)  
+email = "test@skypro.com"  # Электронная почта (str)  
+phone = "+7985899998787"  # Номер телефона (str)  
+zip_code = ""  # Почтовый индекс (str)  
+city = "Москва"  # Город (str)  
+country = "Россия"  # Страна (str)  
+job_position = "QA"  # Должность (str)  
+company = "SkyPro"  # Компания (str) 
