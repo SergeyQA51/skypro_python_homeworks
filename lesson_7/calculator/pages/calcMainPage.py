@@ -9,8 +9,9 @@ from selenium.webdriver.remote.webdriver import WebDriver
 @allure.feature("Calculator")  
 class CalcMain:  
     def __init__(self, browser: WebDriver) -> None:  
+       
         """  
-        Инициализация класса CalcMain.  
+        Инициализация класса CalcMain.
 
         :param browser: Экземпляр WebDriver для управления браузером.  
         """  
